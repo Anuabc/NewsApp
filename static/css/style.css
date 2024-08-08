@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
-    font-family:cursive;
+    font-family: 'Quicksand';
 }
 
 nav{
     width: 100%;
     height: 50px;
-    background-color: rgb(53, 136, 245);
+    background-image: linear-gradient(to right, #ec3434, #ec3434, #30220b, #1b1904, #060702);
     position: fixed;
     top: 0;
     display: flex;
@@ -39,6 +42,7 @@ nav .nav-items button{
     background-color: transparent;
     font-weight: 700;
     font-size: 18px;
+    color: #fff;
     border: none;
 }
 
@@ -49,11 +53,18 @@ nav .nav-items button:hover{
 }
 
 .main{
-    margin-top: 60px;
+    margin: 0;
+    padding: 0;
+    background-color: #ffe5dc;
+}
+
+.main .card-area{
+    margin-top: 50px;
     margin-left: 20px;
     overflow: hidden;
 }
 
-.main .card{
+.main .card-area .card{
     margin: 10px 0 10px 0;
+    background-color: #a2a7de;
 }
