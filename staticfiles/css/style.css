@@ -56,8 +56,6 @@ nav .nav-items button:hover{
     margin: 0;
     padding: 0;
     background-color: #ffe5dc;
-    width: 100%;
-    min-height: 100vh;
 }
 
 .main .card-area{
@@ -69,11 +67,4 @@ nav .nav-items button:hover{
 .main .card-area .card{
     margin: 10px 0 10px 0;
     background-color: #a2a7de;
-    height: 340px;
-}
-
-.main .card-area .card .card-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
