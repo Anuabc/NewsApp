@@ -25,14 +25,16 @@ def home(request):
 
     for divtag in soup.find_all('div', {'class': 'articleClick'}):
         if 'liveStory' not in divtag['class']:
+            head = divtag.find(class_="hdg3")
+            title = head.get_text()
             link = divtag['data-weburl']
             imgtag = divtag.find('img')
             try:
                 img = imgtag['data-src']
             except:
                 img = imgtag['src']
-            title = imgtag['alt']
-            title = ' '.join(title.split(' ')[:10])+'...'
+            # title = imgtag['alt']
+            # title = ' '.join(title.split(' ')[:10])+'...'
             card[counter]  = {'title':title, 'link':link, 'img':img}
             counter += 1
 
