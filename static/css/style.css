@@ -77,3 +77,8 @@ nav .nav-items button:hover{
     flex-direction: column;
     justify-content: space-between;
 }
+
+.main .card-area .card img{
+    width: 100%;
+    height: 50%;
+}
