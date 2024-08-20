@@ -33,17 +33,11 @@ def home(request):
                 img = imgtag['data-src']
             except:
                 img = imgtag['src']
-            # title = imgtag['alt']
-            # title = ' '.join(title.split(' ')[:10])+'...'
             card[counter]  = {'title':title, 'link':link, 'img':img}
             counter += 1
-
-    # length = len(card)
-    # card['length'] = [x for x in range(length)]
 
     context = {
         'card': card,
     }
 
-    print(card)
     return render(request, 'index.html', context=context)
