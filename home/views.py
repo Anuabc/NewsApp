@@ -23,7 +23,7 @@ def home(request):
 
     counter = 0
 
-    for divtag in soup.find_all('div', {'class': 'articleClick'}):
+    for divtag in soup.find_all('div', {'class': 'timeAgo'}):
         if 'liveStory' not in divtag['class']:
             head = divtag.find(class_="hdg3")
             title = head.get_text()
