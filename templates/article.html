@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% block title %}{{heading}}{% endblock title %}
+
+{% block content %}
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/article.css" %}">
 </head>
-<body>
     <h1>{{heading}}</h1>
+    {% comment %} <p>{{content|safe}}</p> {% endcomment %}
     {% for i in content %}
-    <p>{{i}}</p>
+    <p>{{i|safe}}</p>
     {% endfor %}
-</body>
-</html>
+
+{% endblock content %}

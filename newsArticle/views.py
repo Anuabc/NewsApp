@@ -25,13 +25,13 @@ def article(request, link):
     p = soup.find_all('p', class_='')
 
     for i in p:
-        a = i.find('a')
-        if a==None:
-            news.append(i.get_text())
+        news.append(str(i))
 
     context = {
         'heading':heading,
         'content':news,
     }
+
+    print(news)
 
     return render(request, 'article.html', context=context)
