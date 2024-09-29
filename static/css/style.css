@@ -55,11 +55,10 @@ nav .nav-items button:hover{
 
 .main{
     margin-top: 50px;
-    padding: 10px 100px;
+    padding: 0;
     background-color: #ffe5dc;
     width: 100%;
-    min-height: 100vh;
-    
+    min-height: 100vh;   
 }
 
 .main .card-area{

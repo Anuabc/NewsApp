@@ -7,9 +7,46 @@
     <link rel="stylesheet" href="{% static "css/article.css" %}">
 </head>
     <h1>{{heading}}</h1>
-    {% comment %} <p>{{content|safe}}</p> {% endcomment %}
+    <div id="content">
     {% for i in content %}
     <p>{{i|safe}}</p>
     {% endfor %}
+    </div>
+
+    <div id="popup" class="popup"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = contentDiv.innerHTML.split(' ').map(word => `<span>${word}</span>`).join(' ');
+
+            const popup = document.getElementById('popup');
+            document.getElementById('content').addEventListener('mouseover', async (event) => {
+                if (event.target.tagName === 'SPAN') {
+                    const word = event.target.innerText;
+                    const meaning = await fetch(`/meaning?word=${word}`);
+                    const data = await meaning.json();
+
+                    value = '';
+
+                    for (const key in data.meaning){
+                        value += `<b>${key}</b>`;
+                        value += '<br>';
+                        for (const i in data.meaning[key]){
+                            value += data.meaning[key][i];
+                            value += '<br>';
+                        }}
+                    popup.innerHTML = value || 'Meaning not found.';
+                    popup.style.display = 'block';
+                    popup.style.top = `${event.clientY}px`;
+                    popup.style.left = `${event.clientX}px`;
+                }
+            });
+
+            document.getElementById('content').addEventListener('mouseout', () => {
+                popup.style.display = 'none';
+            });
+        });
+    </script>
 
 {% endblock content %}
